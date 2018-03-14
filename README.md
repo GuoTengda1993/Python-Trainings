@@ -17,3 +17,5 @@ https://news.baidu.com/news?fr=mohome&ssid=0&from=844b&uid=&pu=sz%401320_2001%2C
 测试站登录网址<br>
 http://218.97.241.83/web/manage.php <br>
 id：lansing PW：123456
+### 008生成验证码图片
+使用 Python 生成验证码图片
