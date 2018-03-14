@@ -13,3 +13,7 @@ https://news.baidu.com/news?fr=mohome&ssid=0&from=844b&uid=&pu=sz%401320_2001%2C
 将其敏感词语替换为`*`号代替，每字用对应一个`*`，敏感词汇包括：习近平、一年，存入文档，并统计出各敏感词汇替换数量。
 ### 006将纯文本TXT文件写入Excel中
 将纯文本city.txt内容如写入excel表city.xls中。
+### 007模拟登录
+测试站登录网址<br>
+http://218.97.241.83/web/manage.php <br>
+id：lansing PW：123456
