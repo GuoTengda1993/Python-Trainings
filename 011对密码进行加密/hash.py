@@ -18,25 +18,27 @@ class User(object):
     def __init__(self, name, pwd):
         self.name = name
         self.key = ''.join([chr(random.randint(97, 122)) for i in range(10)])
+        self.pwd0 = pwd
         self.pwd = hmac_md5(self.key, pwd)
 
     def register(self):
-        sql = "INSERT INTO userinfo(username, userkey, userpwd) VALUES (%s, %s, %s)" % (self.name, self.key, self.pwd)
-        # try:
-        self.cur.execute(sql)
-        self.cur.close()
-        self.db.commit()
-        #except:
-        #self.db.rollback()
-        #finally:
-        self.db.close()
+        sql = "INSERT INTO userinfo(username, userkey, userpwd) VALUES ('%s', '%s', '%s')" % (self.name, self.key, self.pwd)
+        try:
+            self.cur.execute(sql)
+            self.cur.close()
+            self.db.commit()
+        except:
+            self.db.rollback()
+        finally:
+            self.db.close()
 
     def login(self):
-        sql = 'SELECT userpwd FROM WHERE username = {0}'.format(str(self.name))
+        sql = "SELECT userpwd, userkey FROM userinfo WHERE username='{0}'".format(self.name)
         try:
             self.cur.execute(sql)
             values = self.cur.fetchall()
-            if self.pwd == values:
+            pwd1 = hmac_md5(values[0][1], self.pwd0)
+            if pwd1 == values[0][0]:
                 print('登录成功')
         except:
             print('新用户正在注册')
@@ -45,4 +47,4 @@ class User(object):
 
 if __name__ == '__main__':
     user1 = User('a', '123456')
-    user1.register()
+    user1.login()
