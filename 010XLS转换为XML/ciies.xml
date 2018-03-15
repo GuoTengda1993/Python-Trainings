@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<cities>
+		<!--城市信息-->
+		{'1': '北京', '2': '天津', '3': '上海'}
+	</cities>
+</root>
