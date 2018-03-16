@@ -4,6 +4,7 @@ import random
 
 main_list = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 finish = 0
+score = 0
 
 
 def generate2or4():
@@ -31,6 +32,7 @@ def generate2or4():
                         main_list[i][j] = num
                         break
     print('-------------')
+    global score
     score = 0
     for y in main_list:
         score += sum(y)
@@ -96,8 +98,12 @@ def action_right():
 
 
 def run():
+    global score
     while finish == 0:
         action_code = str(input('Please input the action code:(W, S, A, D) or Q(quit)')).upper()
+        if score >= 2048:
+            print('You win! Your total scroe is %d' % score)
+            break
         if action_code == 'Q':
             break
         if action_code == 'W':
