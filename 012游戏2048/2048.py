@@ -31,13 +31,14 @@ def generate2or4():
                     if n == fill_num:
                         main_list[i][j] = num
                         break
-    print('-------------')
+    print('*--------------------*')
     global score
     score = 0
     for y in main_list:
         score += sum(y)
-        print(y)
-    print('-------------')
+        print(str(y[0]) + ' '*(5-len(str(y[0]))) + '|' + str(y[1]) + ' '*(5-len(str(y[1]))) + '|' + str(y[2]) +
+              ' '*(5-len(str(y[2]))) + '|' + str(y[3]) + ' '*(5-len(str(y[3]))))
+        print('——————————')
     print('Now score is %s' % score)
 
 
